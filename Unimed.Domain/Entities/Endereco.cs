@@ -10,8 +10,6 @@ namespace Unimed.Domain
 
         public int IdCidade { get; set; }
         public virtual Cidade Cidade { get; set; }
-
-        public int IdPaciente { get; set; }
         public virtual Paciente Paciente { get; set; }
     }
 }
