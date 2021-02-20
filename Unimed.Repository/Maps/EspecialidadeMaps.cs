@@ -13,7 +13,7 @@ namespace Unimed.Repository
         {
             base.Configure(builder);
 
-            builder.Property(x => x.Nome).HasColumnName("especialidade").HasMaxLength(50).IsRequired();
+            builder.Property(x => x.Nome).HasColumnName("nome").HasMaxLength(50).IsRequired();
         }
     }
 }
