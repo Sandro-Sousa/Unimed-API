@@ -6,7 +6,7 @@ namespace Unimed.Repository
 {
     public class ProfissionalMaps : BaseEntitiesMap<Profissional> 
     {
-        public ProfissionalMaps(): base("tb_paciente")
+        public ProfissionalMaps(): base("tb_profissional")
         {}
 
         public override void Configure(EntityTypeBuilder<Profissional> builder)

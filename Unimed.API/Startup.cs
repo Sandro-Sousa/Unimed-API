@@ -18,11 +18,15 @@ namespace Unimed.API
 
         public IConfiguration Configuration { get; }
         
+
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<UnimedDbContext>(opt => 
-            opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<UnimedDbContext>(opt => {
+                opt.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection"),
+                     assembly => assembly.MigrationsAssembly(typeof(UnimedDbContext).Assembly.FullName));
+            });
             
             
             services.AddControllers();

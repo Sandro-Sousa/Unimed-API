@@ -6,7 +6,7 @@ namespace Unimed.Repository
 {
     public class EnderecoMaps : BaseEntitiesMap<Endereco> 
     {
-        public EnderecoMaps(): base("tb_paciente")
+        public EnderecoMaps(): base("tb_endereco")
         {}
 
         public override void Configure(EntityTypeBuilder<Endereco> builder)
