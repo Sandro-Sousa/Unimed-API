@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -116,11 +117,11 @@ namespace Unimed.Repository
             }
         }
 
-        public PacienteDTO Editar(PacienteEditarDTO model)
+        public bool Editar(PacienteEditarDTO model)
         {
             if(model.Id < 0)
             {
-                return null;
+                return false;
             }
 
             var paciente = CriarPaciente(model); 
@@ -129,30 +130,23 @@ namespace Unimed.Repository
 
             try
             {
-                UnimedDbContext.Update(endereco);
-                UnimedDbContext.SaveChanges();
+                endereco.Id = UnimedDbContext.Pacientes.Where(x => x.Id == model.Id).FirstOrDefault().IdEndereco;
+
 
                 paciente.IdEndereco = endereco.Id;
-                UnimedDbContext.Update(paciente);
+                paciente.Id = model.Id;
+
+                UnimedDbContext.Enderecos.Update(endereco);
+                UnimedDbContext.Entry(endereco).State = EntityState.Detached;
+
+                UnimedDbContext.Pacientes.Update(paciente);
                 UnimedDbContext.SaveChanges();
+
 
                 var cidade = UnimedDbContext.Cidades.Where(x => x.Id == model.Cidade).FirstOrDefault();
 
-                return new PacienteDTO {
-                    Id = paciente.Id,
-                    Nome = paciente.Nome,
-                    DtNascimento = paciente.DtNascimento,
-                    Cpf = paciente.Cpf,
-                    Endereco = new EnderecoDTO
-                    {
-                        Logradouro = paciente.Endereco.Logradouro,
-                        Bairro = paciente.Endereco.Bairro,
-                        Cidade = cidade.Nome,
-                        Numero = paciente.Endereco.Numero,
-                        Uf = cidade.Uf
-                    }
+                return true;
                 
-                };
             }
             catch (Exception ex)
             {
