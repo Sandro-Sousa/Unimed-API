@@ -21,6 +21,7 @@ namespace Unimed.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            DependencyInjection.Register(services);
 
             services.AddDbContext<UnimedDbContext>(opt => {
                 opt.UseSqlServer(

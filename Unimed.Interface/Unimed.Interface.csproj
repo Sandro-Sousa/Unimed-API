@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\Unimed.Domain\Unimed.Domain.csproj" />
   </ItemGroup>
 
 </Project>
