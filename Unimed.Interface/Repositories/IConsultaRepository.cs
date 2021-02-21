@@ -5,6 +5,10 @@ namespace Unimed.Interface
 {
     public interface IConsultaRepository
     {
-        List<Consulta> Get();
+        IEnumerable<ConsultaDTO> Get();
+        ConsultaDTO Get(int id);
+        bool MarcarConsulta(MarcarConsultaDTO model);
+        bool EditarConsulta(EditarConsultaDTO model);
+
     }
 }
