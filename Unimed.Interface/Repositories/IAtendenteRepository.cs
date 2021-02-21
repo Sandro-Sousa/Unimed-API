@@ -8,7 +8,7 @@ namespace Unimed.Interface
         IEnumerable<PacienteDTO> Get();
         bool Criar(PacienteAdicionarDTO model);
         PacienteDTO Get(int id);
-        PacienteDTO Editar(PacienteEditarDTO model);
+        bool Editar(PacienteEditarDTO model);
         bool Delete(int id);
     }
 }

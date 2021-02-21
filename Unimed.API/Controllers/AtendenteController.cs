@@ -44,11 +44,11 @@ namespace Unimed.API.Controllers
         {
 
             var result = GetService<IAtendenteRepository>().Editar(model);
-            if (result == null)
+            if (result)
             {
-                return BadRequest();
+                return Ok("Paciente Editado");
             }
-            return Ok(result);
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
