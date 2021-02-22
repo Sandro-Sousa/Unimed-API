@@ -36,6 +36,11 @@ Add-Migration Nome
 Update-Database
 ```
 
+
+Atenção! Utilize o Script SQL Incluso nesse Projeto para Popular o Banco de Dados Antes de Usar API.
+
+
+
 ## Funcionalidades
 
 | Metódo | Funcionalidade | Consulta |
