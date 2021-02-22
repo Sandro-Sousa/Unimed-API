@@ -671,3 +671,5 @@ INSERT INTO tb_profissional_especialidade(id_profissional,id_especialidade, ativ
 
 
 
+  INSERT INTO tb_endereco(logradouro,bairro, numero, id_cidade,criado_em)
+  VALUES ('Rua Dos Anjos', 'Casa Branca', 90, 3, '2021-06-25')

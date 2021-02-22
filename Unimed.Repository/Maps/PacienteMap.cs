@@ -16,9 +16,11 @@ namespace Unimed.Repository
             builder.Property(x => x.Nome).HasColumnName("nome").HasMaxLength(100).IsRequired();
             builder.Property(x => x.DtNascimento).HasColumnName("dt_nascimento").IsRequired();
             builder.Property(x => x.Cpf).HasColumnName("cpf").HasMaxLength(11).IsRequired();
-
             builder.Property(x => x.IdEndereco).HasColumnName("id_endereco").IsRequired();
+
+            
             builder.Property(x => x.IdConvenio).HasColumnName("id_convenio").IsRequired();
+            builder.HasOne(x => x.Convenio).WithMany().HasForeignKey(x => x.IdConvenio);
         }
     }
 }

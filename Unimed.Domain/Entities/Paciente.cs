@@ -11,9 +11,10 @@ namespace Unimed.Domain
 
         public int IdEndereco { get; set; }
         public virtual Endereco Endereco { get; set; }
-        public virtual List<Consulta> Consultas { get; set; }
+
         public int IdConvenio { get; set; }
         public virtual Convenio Convenio { get; set; }
+        public virtual List<Consulta> Consultas { get; set; }
 
     }
 }
