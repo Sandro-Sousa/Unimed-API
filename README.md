@@ -50,3 +50,7 @@ Atenção! Utilize o Script SQL Incluso nesse Projeto para Popular o Banco de Da
 | POST | Cadastra Paciente | Cadastra Consulta |
 | PUT | Altera Dados do Paciente por ID | Altera Dados da Consulta por ID |
 | DELETE | Exclui Dados do Paciente por ID |
+
+
+
+Obs: Projeto foi Desenvolvido com Base nos Conhecimentos Adquiridos em Cursos Online, Vídeos You Tube e Documentação.
